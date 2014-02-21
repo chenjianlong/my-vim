@@ -1,0 +1,46 @@
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+set nu
+set tabstop=4
+set shiftwidth=4
+set cindent
+set autoindent
+set ignorecase
+set smarttab
+set hlsearch
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
+function! ResCur()
+	if line("'\"") <= line("$")
+		normal! g`"
+		return 1
+	endif
+endfunction
+
+augroup resCur
+	autocmd!
+	autocmd BufRead * call ResCur()
+augroup END
+
+autocmd BufRead,BufNewFile *.py,*.md set et ts=4 sw=4
+
+let g:username = "Jianlong Chen"
+let g:email = "jianlong99@gmail.com"
+let g:template_max_depth = 1
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
