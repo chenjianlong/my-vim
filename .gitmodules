@@ -1,6 +1,11 @@
 [submodule "plugins/vim-pathogen"]
 	path = plugins/vim-pathogen
 	url = git://github.com/chenjianlong/vim-pathogen
+
 [submodule "plugins/vim-template"]
 	path = plugins/vim-template
 	url = git://github.com/chenjianlong/vim-template
+
+[submodule "plugins/vim-project"]
+	path = plugins/vim-project
+	url = git://github.com/chenjianlong/vim-project

@@ -16,3 +16,4 @@ mkdir -p $HOME/.vim/autoload
 mkdir -p $HOME/.vim/bundle
 cp $PLUGINS_DIR/vim-pathogen/autoload/pathogen.vim $HOME/.vim/autoload/pathogen.vim
 cp -r $PLUGINS_DIR/vim-template $HOME/.vim/bundle/
+cp -r $PLUGINS_DIR/vim-project $HOME/.vim/bundle/
