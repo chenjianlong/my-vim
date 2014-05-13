@@ -9,3 +9,7 @@
 [submodule "plugins/vim-project"]
 	path = plugins/vim-project
 	url = git://github.com/chenjianlong/vim-project
+
+[submodule "plugins/vim-taglist"]
+	path = plugins/vim-taglist
+	url = git://github.com/chenjianlong/vim-taglist
