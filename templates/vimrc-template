@@ -37,6 +37,11 @@ augroup END
 
 autocmd BufRead,BufNewFile *.py,*.md set et ts=4 sw=4
 
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
+
 let g:username = "Jianlong Chen"
 let g:email = "jianlong99@gmail.com"
 let g:template_max_depth = 1
