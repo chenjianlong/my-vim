@@ -12,6 +12,12 @@ TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
 PLUGINS_DIR=$TOPDIR/plugins
 
+if [[ "`uname`" == "Darwin" ]]; then
+	PKG_MANAGER=port
+else
+	PKG_MANAGER=apt-get
+fi
+
 
 git submodule init
 git submodule update
@@ -24,16 +30,16 @@ cp $PLUGINS_DIR/vim-pathogen/autoload/pathogen.vim $HOME/.vim/autoload/pathogen.
 
 # vim-template plugin
 if [ $INSTALL_TEMPLATE_PLUGIN -ne 0 ]; then
-	cp -r --remove-destination $PLUGINS_DIR/vim-template $HOME/.vim/bundle/
+	rsync -crl --delete $PLUGINS_DIR/vim-template $HOME/.vim/bundle/
 fi
 
 # vim-project plugin
 if [ $INSTALL_PROJECT_PLUGIN -ne 0 ]; then
-	cp -r --remove-destination $PLUGINS_DIR/vim-project $HOME/.vim/bundle/
+	rsync -crl --delete $PLUGINS_DIR/vim-project $HOME/.vim/bundle/
 fi
 
 # vim-taglist plugin
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
-	sudo apt-get install ctags
-	cp -r --remove-destination $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
+	sudo $PKG_MANAGER install ctags
+	rsync -crl --delete $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
 fi
