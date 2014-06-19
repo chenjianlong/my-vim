@@ -7,6 +7,7 @@
 INSTALL_TEMPLATE_PLUGIN=1
 INSTALL_PROJECT_PLUGIN=1
 INSTALL_TAGLIST_PLUGIN=1
+INSTALL_GO_PLUGIN=1
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -42,4 +43,16 @@ fi
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install ctags
 	rsync -crl --delete $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
+fi
+
+# vim-go plugin
+go version >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+	HAVE_GO=0
+else
+	HAVE_GO=1
+fi
+
+if [ \( $INSTALL_GO_PLUGIN -ne 0 \) -a \( $HAVE_GO -ne 0 \) ]; then
+	rsync -crl --delete $PLUGINS_DIR/vim-go $HOME/.vim/bundle/
 fi
