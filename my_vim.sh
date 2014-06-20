@@ -48,7 +48,7 @@ if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
 	rsync -crl --delete $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
 fi
 
-# vim-taglist plugin
+# vim-tagbar plugin
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS ctags
 	rsync -crl --delete $PLUGINS_DIR/vim-tagbar $HOME/.vim/bundle/
