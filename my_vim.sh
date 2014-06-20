@@ -15,15 +15,17 @@ PLUGINS_DIR=$TOPDIR/plugins
 
 if [[ "`uname`" == "Darwin" ]]; then
 	PKG_MANAGER=port
+	PKG_OPTS=
 else
 	PKG_MANAGER=apt-get
+	PKG_OPTS=-y
 fi
 
 
 git submodule init
 git submodule update
 
-[ -f $HOME/.vimrc ] && cp $HOME/.vimrc $HOME/.vimrc_backup
+[ -f $HOME/.vimrc ] && cp $HOME/.vimrc $HOME/".vimrc_backup_`date +%F-%T`"
 cp $TEMPLATE_DIR/vimrc-template $HOME/.vimrc
 mkdir -p $HOME/.vim/autoload
 mkdir -p $HOME/.vim/bundle
@@ -41,7 +43,7 @@ fi
 
 # vim-taglist plugin
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
-	sudo $PKG_MANAGER install ctags
+	sudo $PKG_MANAGER install $PKG_OPTS ctags
 	rsync -crl --delete $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
 fi
 
@@ -54,5 +56,6 @@ else
 fi
 
 if [ \( $INSTALL_GO_PLUGIN -ne 0 \) -a \( $HAVE_GO -ne 0 \) ]; then
+	sudo $PKG_MANAGER install $PKG_OPTS mercurial
 	rsync -crl --delete $PLUGINS_DIR/vim-go $HOME/.vim/bundle/
 fi
