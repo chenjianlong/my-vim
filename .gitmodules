@@ -14,6 +14,10 @@
 	path = plugins/vim-taglist
 	url = git://github.com/chenjianlong/vim-taglist
 
+[submodule "plugins/vim-tagbar"]
+	path = plugins/vim-tagbar
+	url = git://github.com/chenjianlong/vim-tagbar
+
 [submodule "plugins/vim-go"]
 	path = plugins/vim-go
 	url = git://github.com/chenjianlong/vim-go
