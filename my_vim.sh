@@ -8,6 +8,7 @@ INSTALL_TEMPLATE_PLUGIN=1
 INSTALL_PROJECT_PLUGIN=1
 INSTALL_TAGLIST_PLUGIN=1
 INSTALL_TAGBAR_PLUGIN=1
+INSTALL_NERDTREE_PLUGIN=1
 INSTALL_GO_PLUGIN=1
 
 TOPDIR=`pwd`
@@ -52,6 +53,11 @@ fi
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS ctags
 	rsync -crl --delete $PLUGINS_DIR/vim-tagbar $HOME/.vim/bundle/
+fi
+
+# nerdtree plugin
+if [ $INSTALL_NERDTREE_PLUGIN -ne 0 ]; then
+	rsync -crl --delete $PLUGINS_DIR/nerdtree $HOME/.vim/bundle/
 fi
 
 # vim-go plugin
