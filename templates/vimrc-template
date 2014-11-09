@@ -35,7 +35,7 @@ augroup resCur
 	autocmd BufRead * call ResCur()
 augroup END
 
-autocmd BufRead,BufNewFile *.py,*.md,*.h,*.cpp set et ts=4 sw=4
+autocmd BufRead,BufNewFile *.py,*.md,*.h,*.cpp,*.inl set et ts=4 sw=4
 
 set encoding=utf-8
 set termencoding=utf-8
