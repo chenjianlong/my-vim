@@ -25,3 +25,7 @@
 [submodule "plugins/vim-go"]
 	path = plugins/vim-go
 	url = git://github.com/chenjianlong/vim-go
+
+[submodule "plugins/YouCompleteMe"]
+	path = plugins/YouCompleteMe
+	url = git://github.com/chenjianlong/YouCompleteMe
