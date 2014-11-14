@@ -50,6 +50,8 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1   "exit vim if taglist is the last window
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
 
+let g:ycm_confirm_extra_conf = 0
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
