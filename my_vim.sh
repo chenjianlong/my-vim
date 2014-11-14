@@ -10,6 +10,7 @@ INSTALL_TAGLIST_PLUGIN=1
 INSTALL_TAGBAR_PLUGIN=1
 INSTALL_NERDTREE_PLUGIN=1
 INSTALL_GO_PLUGIN=1
+INSTALL_YCM_PLUGIN=1
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -24,8 +25,7 @@ else
 fi
 
 
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 [ -f $HOME/.vimrc ] && cp $HOME/.vimrc $HOME/".vimrc_backup_`date +%F-%T`"
 cp $TEMPLATE_DIR/vimrc-template $HOME/.vimrc
@@ -71,4 +71,15 @@ fi
 if [ \( $INSTALL_GO_PLUGIN -ne 0 \) -a \( $HAVE_GO -ne 0 \) ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS mercurial
 	rsync -crl --delete $PLUGINS_DIR/vim-go $HOME/.vim/bundle/
+fi
+
+# YouCompleteMe plugin
+if [ $INSTALL_YCM_PLUGIN -ne 0 ]; then
+	sudo $PKG_MANAGER install $PKG_OPTS build-essential cmake
+	sudo $PKG_MANAGER install $PKG_OPTS  python-dev
+	rsync -crl --delete $PLUGINS_DIR/YouCompleteMe $HOME/.vim/bundle/
+	cd $HOME/.vim/bundle/YouCompleteMe
+	./install.sh --clang-completer
+	cd $TOPDIR
+	cp $TOPDIR/config/.ycm_extra_conf.py $HOME/
 fi
