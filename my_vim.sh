@@ -11,6 +11,7 @@ INSTALL_TAGBAR_PLUGIN=1
 INSTALL_NERDTREE_PLUGIN=1
 INSTALL_GO_PLUGIN=1
 INSTALL_YCM_PLUGIN=0
+INSTALL_FLAKE8_PLUGIN=0
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -82,4 +83,17 @@ if [ $INSTALL_YCM_PLUGIN -ne 0 ]; then
 	./install.sh --clang-completer
 	cd $TOPDIR
 	cp $TOPDIR/config/.ycm_extra_conf.py $HOME/
+fi
+
+# vim-flake8 plugin
+if [ $INSTALL_FLAKE8_PLUGIN -ne 0 ]; then
+	if [[ "`uname`" != "Darwin" ]]; then
+		sudo apt-add-repository ppa:cjohnston/flake8
+		sudo add-apt-repository ppa:likemartinma/python
+		sudo apt-get update
+		sudo apt-get -y --force-yes dist-upgrade
+		sudo apt-get install python-flake8
+		sudo apt-get install pep8-naming
+		rsync -crl --delete $PLUGINS_DIR/vim-flake8 $HOME/.vim/bundle/
+	fi
 fi

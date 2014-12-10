@@ -29,3 +29,7 @@
 [submodule "plugins/YouCompleteMe"]
 	path = plugins/YouCompleteMe
 	url = git://github.com/chenjianlong/YouCompleteMe
+
+[submodule "plugins/vim-flake8"]
+	path = plugins/vim-flake8
+	url = git://github.com/chenjianlong/vim-flake8
