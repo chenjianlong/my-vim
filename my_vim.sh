@@ -12,6 +12,7 @@ INSTALL_NERDTREE_PLUGIN=1
 INSTALL_GO_PLUGIN=1
 INSTALL_YCM_PLUGIN=0
 INSTALL_FLAKE8_PLUGIN=0
+INSTALL_SOLARIZED_PLUGIN=1
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -96,4 +97,15 @@ if [ $INSTALL_FLAKE8_PLUGIN -ne 0 ]; then
 		sudo apt-get install pep8-naming
 		rsync -crl --delete $PLUGINS_DIR/vim-flake8 $HOME/.vim/bundle/
 	fi
+fi
+
+# solarized plugin
+if [ $INSTALL_SOLARIZED_PLUGIN -ne 0 ]; then
+	rsync -crl --delete $PLUGINS_DIR/solarized/vim-colors-solarized $HOME/.vim/bundle/
+	cat >> $HOME/.vimrc <<EOF
+syntax enable
+set background=dark
+colorscheme solarized
+EOF
+
 fi

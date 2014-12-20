@@ -33,3 +33,7 @@
 [submodule "plugins/vim-flake8"]
 	path = plugins/vim-flake8
 	url = git://github.com/chenjianlong/vim-flake8
+
+[submodule "plugins/solarized"]
+	path = plugins/solarized
+	url = git://github.com/chenjianlong/solarized
