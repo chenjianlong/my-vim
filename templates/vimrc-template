@@ -10,6 +10,7 @@ set autoindent
 set ignorecase
 set smarttab
 set hlsearch
+set laststatus=2
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')

@@ -13,6 +13,7 @@ INSTALL_GO_PLUGIN=1
 INSTALL_YCM_PLUGIN=0
 INSTALL_FLAKE8_PLUGIN=0
 INSTALL_SOLARIZED_PLUGIN=1
+INSTALL_AIRLINE_PLUGIN=1
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -106,6 +107,25 @@ if [ $INSTALL_SOLARIZED_PLUGIN -ne 0 ]; then
 syntax enable
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors = 256
 EOF
+fi
 
+# airline plugin
+if [ $INSTALL_AIRLINE_PLUGIN -ne 0 ]; then
+	rsync -crl --delete $PLUGINS_DIR/vim-airline $HOME/.vim/bundle/
+	rsync -crl --delete $PLUGINS_DIR/vim-fugitive $HOME/.vim/bundle/
+	cat >> $HOME/.vimrc <<EOF
+let g:airline_theme            = 'badwolf'
+let g:airline_enable_branch     = 1
+let g:airline_enable_syntastic  = 1
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.paste = '∥'
+EOF
 fi

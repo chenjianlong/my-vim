@@ -37,3 +37,11 @@
 [submodule "plugins/solarized"]
 	path = plugins/solarized
 	url = git://github.com/chenjianlong/solarized
+
+[submodule "plugins/vim-airline"]
+	path = plugins/vim-airline
+	url = git://github.com/chenjianlong/vim-airline
+
+[submodule "plugins/vim-fugitive"]
+	path = plugins/vim-fugitive
+	url = git://github.com/chenjianlong/vim-fugitive
