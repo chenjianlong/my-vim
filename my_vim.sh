@@ -15,6 +15,7 @@ INSTALL_FLAKE8_PLUGIN=0
 INSTALL_SOLARIZED_PLUGIN=1
 INSTALL_AIRLINE_PLUGIN=1
 INSTALL_CTRLP_PLUGIN=1
+INSTALL_TABULAR_PLUGIN=1
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -134,4 +135,9 @@ fi
 # ctrlp plugin
 if [ $INSTALL_CTRLP_PLUGIN -ne 0 ]; then
 	rsync -crl --delete $PLUGINS_DIR/ctrlp.vim $HOME/.vim/bundle/
+fi
+
+# tabular plugin
+if [ $INSTALL_TABULAR_PLUGIN -ne 0 ]; then
+	rsync -crl --delete $PLUGINS_DIR/tabular $HOME/.vim/bundle/
 fi

@@ -49,3 +49,7 @@
 [submodule "plugins/ctrlp.vim"]
 	path = plugins/ctrlp.vim
 	url = git://github.com/chenjianlong/ctrlp.vim
+
+[submodule "plugins/tabular"]
+	path = plugins/tabular
+	url = git://github.com/chenjianlong/tabular
