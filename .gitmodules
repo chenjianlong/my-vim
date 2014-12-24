@@ -45,3 +45,7 @@
 [submodule "plugins/vim-fugitive"]
 	path = plugins/vim-fugitive
 	url = git://github.com/chenjianlong/vim-fugitive
+
+[submodule "plugins/ctrlp.vim"]
+	path = plugins/ctrlp.vim
+	url = git://github.com/chenjianlong/ctrlp.vim

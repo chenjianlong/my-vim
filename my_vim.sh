@@ -14,6 +14,7 @@ INSTALL_YCM_PLUGIN=0
 INSTALL_FLAKE8_PLUGIN=0
 INSTALL_SOLARIZED_PLUGIN=1
 INSTALL_AIRLINE_PLUGIN=1
+INSTALL_CTRLP_PLUGIN=1
 
 TOPDIR=`pwd`
 TEMPLATE_DIR=$TOPDIR/templates
@@ -128,4 +129,9 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = '∥'
 EOF
+fi
+
+# ctrlp plugin
+if [ $INSTALL_CTRLP_PLUGIN -ne 0 ]; then
+	rsync -crl --delete $PLUGINS_DIR/ctrlp.vim $HOME/.vim/bundle/
 fi
