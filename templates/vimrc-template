@@ -1,6 +1,6 @@
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set ruler		    " show the cursor position all the time
+set showcmd		    " display incomplete commands
 set incsearch		" do incremental searching
 set nu
 set tabstop=4
@@ -10,6 +10,8 @@ set autoindent
 set ignorecase
 set smarttab
 set hlsearch
+set modeline
+set modelines=5
 set laststatus=2
 
 " In many terminal emulators the mouse works just fine, thus enable it.
