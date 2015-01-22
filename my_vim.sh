@@ -40,29 +40,29 @@ cp $PLUGINS_DIR/vim-pathogen/autoload/pathogen.vim $HOME/.vim/autoload/pathogen.
 
 # vim-template plugin
 if [ $INSTALL_TEMPLATE_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/vim-template $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-template $HOME/.vim/bundle/
 fi
 
 # vim-project plugin
 if [ $INSTALL_PROJECT_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/vim-project $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-project $HOME/.vim/bundle/
 fi
 
 # vim-taglist plugin
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS ctags
-	rsync -crl --delete $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-taglist $HOME/.vim/bundle/
 fi
 
 # vim-tagbar plugin
 if [ $INSTALL_TAGLIST_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS ctags
-	rsync -crl --delete $PLUGINS_DIR/vim-tagbar $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-tagbar $HOME/.vim/bundle/
 fi
 
 # nerdtree plugin
 if [ $INSTALL_NERDTREE_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/nerdtree $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/nerdtree $HOME/.vim/bundle/
 fi
 
 # vim-go plugin
@@ -75,7 +75,7 @@ fi
 
 if [ \( $INSTALL_GO_PLUGIN -ne 0 \) -a \( $HAVE_GO -ne 0 \) ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS mercurial
-	rsync -crl --delete $PLUGINS_DIR/vim-go $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-go $HOME/.vim/bundle/
 fi
 
 # YouCompleteMe plugin
@@ -85,7 +85,7 @@ if [ $INSTALL_YCM_PLUGIN -ne 0 ]; then
 	cd $PLUGINS_DIR/YouCompleteMe
 	git submodule update --init --recursive
 	./install.sh --clang-completer
-	rsync -crl --delete $PLUGINS_DIR/YouCompleteMe $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/YouCompleteMe $HOME/.vim/bundle/
 	cd $TOPDIR
 	cp $TOPDIR/config/.ycm_extra_conf.py $HOME/
 fi
@@ -99,13 +99,13 @@ if [ $INSTALL_FLAKE8_PLUGIN -ne 0 ]; then
 		sudo apt-get -y --force-yes dist-upgrade
 		sudo apt-get install python-flake8
 		sudo apt-get install pep8-naming
-		rsync -crl --delete $PLUGINS_DIR/vim-flake8 $HOME/.vim/bundle/
+		rsync -a --delete $PLUGINS_DIR/vim-flake8 $HOME/.vim/bundle/
 	fi
 fi
 
 # solarized plugin
 if [ $INSTALL_SOLARIZED_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/solarized/vim-colors-solarized $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/solarized/vim-colors-solarized $HOME/.vim/bundle/
 	cat >> $HOME/.vimrc <<EOF
 syntax enable
 set background=dark
@@ -116,8 +116,8 @@ fi
 
 # airline plugin
 if [ $INSTALL_AIRLINE_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/vim-airline $HOME/.vim/bundle/
-	rsync -crl --delete $PLUGINS_DIR/vim-fugitive $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-airline $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/vim-fugitive $HOME/.vim/bundle/
 	cat >> $HOME/.vimrc <<EOF
 let g:airline_theme            = 'badwolf'
 let g:airline_enable_branch     = 1
@@ -135,10 +135,10 @@ fi
 
 # ctrlp plugin
 if [ $INSTALL_CTRLP_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/ctrlp.vim $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/ctrlp.vim $HOME/.vim/bundle/
 fi
 
 # tabular plugin
 if [ $INSTALL_TABULAR_PLUGIN -ne 0 ]; then
-	rsync -crl --delete $PLUGINS_DIR/tabular $HOME/.vim/bundle/
+	rsync -a --delete $PLUGINS_DIR/tabular $HOME/.vim/bundle/
 fi
