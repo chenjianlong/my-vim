@@ -82,9 +82,10 @@ fi
 if [ $INSTALL_YCM_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS build-essential cmake
 	sudo $PKG_MANAGER install $PKG_OPTS  python-dev
-	rsync -crl --delete $PLUGINS_DIR/YouCompleteMe $HOME/.vim/bundle/
-	cd $HOME/.vim/bundle/YouCompleteMe
+	cd $PLUGINS_DIR/YouCompleteMe
+	git submodule update --init --recursive
 	./install.sh --clang-completer
+	rsync -crl --delete $PLUGINS_DIR/YouCompleteMe $HOME/.vim/bundle/
 	cd $TOPDIR
 	cp $TOPDIR/config/.ycm_extra_conf.py $HOME/
 fi
