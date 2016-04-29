@@ -109,8 +109,8 @@ if [ $INSTALL_SOLARIZED_PLUGIN -ne 0 ]; then
 	cat >> $HOME/.vimrc <<EOF
 syntax enable
 set background=dark
-colorscheme solarized
 let g:solarized_termcolors = 256
+colorscheme solarized
 EOF
 fi
 
