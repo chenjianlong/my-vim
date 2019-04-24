@@ -76,6 +76,9 @@ fi
 if [ \( $INSTALL_GO_PLUGIN -ne 0 \) -a \( $HAVE_GO -ne 0 \) ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS mercurial
 	rsync -a --delete $PLUGINS_DIR/vim-go $HOME/.vim/bundle/
+	cat >> $HOME/.vimrc <<EOF
+let g:go_version_warning = 0
+EOF
 fi
 
 # YouCompleteMe plugin
