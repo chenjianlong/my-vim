@@ -48,7 +48,7 @@ set fileencodings=ucs-bom,utf-8,chinese,cp936
 
 let g:username = "Jianlong Chen"
 let g:email = "jianlong99@gmail.com"
-let g:template_max_depth = 1
+let g:templates_search_height = 1
 
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1   "exit vim if taglist is the last window
