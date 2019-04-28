@@ -84,7 +84,7 @@ fi
 # YouCompleteMe plugin
 if [ $INSTALL_YCM_PLUGIN -ne 0 ]; then
 	sudo $PKG_MANAGER install $PKG_OPTS build-essential cmake
-	sudo $PKG_MANAGER install $PKG_OPTS  python-dev
+	sudo $PKG_MANAGER install $PKG_OPTS python-dev
 	cd $PLUGINS_DIR/YouCompleteMe
 	git submodule update --init --recursive
 	./install.sh --clang-completer
