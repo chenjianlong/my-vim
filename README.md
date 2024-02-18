@@ -8,4 +8,6 @@ my vim configuration!
 
 clone this repo and type the follow command:
 
-    ./my_vim.sh
+```sh
+./my_vim.sh
+```
